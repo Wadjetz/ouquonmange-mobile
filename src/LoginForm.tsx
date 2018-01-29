@@ -1,5 +1,6 @@
 import React from "react"
 import { View, Text, ViewStyle, StyleSheet, TextInput } from "react-native"
+import Input from "~/components/Input"
 
 interface Props {
   email: string
@@ -15,16 +16,12 @@ export default class LoginForm extends React.PureComponent<Props> {
     const { email, password } = this.props
     return (
       <View style={styles.container}>
-        <View style={styles.field}>
-          <Text style={styles.label}>Email</Text>
-          <TextInput value={email} onChange={this.handleChange("email")} />
-          <Text style={styles.error}>Error</Text>
-        </View>
+        <Input label="Email" value={email} onChange={this.handleChange("email")} />
       </View>
     )
   }
 
-  handleChange = (field: string) => (event: { nativeEvent: { text: string } }) => this.props.onChange(field, event.nativeEvent.text)
+  handleChange = (field: string) => (value: string) => this.props.onChange(field, value)
 }
 
 interface Styles {
@@ -34,8 +31,9 @@ interface Styles {
   error: ViewStyle,
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create<Styles>({
   container: {
+    padding: 20,
   },
   field: {},
   label: {},
