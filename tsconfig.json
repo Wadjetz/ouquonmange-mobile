@@ -1,11 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react-native",
-    "module": "es2015",
+    "module": "es6",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "build",
@@ -15,7 +15,7 @@
     "pretty": true,
     "rootDir": "src",
     "strictNullChecks": true,
-    "target": "es2015"
+    "target": "es6"
   },
   "include": [
     "src/**/*.ts",
