@@ -6,7 +6,7 @@ interface Props {
   label: string
   type?: string
   error?: string
-  onChange: (value: string) => void
+  onChange(value: string): void
 }
 
 type InputEvent = { nativeEvent: { text: string } }

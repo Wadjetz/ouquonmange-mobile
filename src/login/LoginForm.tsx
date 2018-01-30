@@ -7,8 +7,8 @@ interface Props {
   password: string
   loading: boolean
   error?: any
-  onChange: (field: string, value: string) => void
-  onSubmit: (email: string, password: string) => void
+  onChange(field: string, value: string): void
+  onSubmit(email: string, password: string): void
 }
 
 export default class LoginForm extends React.PureComponent<Props> {

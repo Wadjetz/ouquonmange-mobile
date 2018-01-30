@@ -9,11 +9,7 @@ const AuthorizedNavigator = DrawerNavigator({
     screen: CommunitiesScreen,
     navigationOptions: {
       drawerLabel: "Communities",
-      drawerIcon: () => {
-        return (
-          <Text>C</Text>
-        )
-      }
+      drawerIcon: () => <Text>C</Text>
     }
   },
 }, {
