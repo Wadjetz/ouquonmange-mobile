@@ -1,4 +1,4 @@
-import { LoginAction } from "~/LoginActions"
+import { LoginAction } from "~/login/LoginActions"
 
 export interface LoginState {
   email: string

@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, ViewStyle, StyleSheet, TextInput } from "react-native"
+import { View, Text, ViewStyle, StyleSheet, TextInput, Button } from "react-native"
 import Input from "~/components/Input"
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   loading: boolean
   error?: any
   onChange: (field: string, value: string) => void
-  onSubmit: (login: string, password: string) => void
+  onSubmit: (email: string, password: string) => void
 }
 
 export default class LoginForm extends React.PureComponent<Props> {
@@ -17,10 +17,12 @@ export default class LoginForm extends React.PureComponent<Props> {
     return (
       <View style={styles.container}>
         <Input label="Email" value={email} onChange={this.handleChange("email")} />
+        <Input label="Password" value={password} onChange={this.handleChange("password")} />
+        <Button title="Login" onPress={this.handleSubmit} />
       </View>
     )
   }
-
+  handleSubmit = () => this.props.onSubmit(this.props.email, this.props.password)
   handleChange = (field: string) => (value: string) => this.props.onChange(field, value)
 }
 

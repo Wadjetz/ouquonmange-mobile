@@ -2,10 +2,10 @@ import React from "react"
 import { connect, Dispatch } from "react-redux"
 import { View, Text, Button, ViewStyle, StyleSheet } from "react-native"
 import { NavigationScreenProp, NavigationActions, StackNavigator } from "react-navigation"
-import LoginForm from "~/LoginForm"
 import { GlobalState } from "~/GlobalState"
-import { LoginState } from "~/LoginReducer"
-import * as LoginActions from "~/LoginActions"
+import LoginForm from "~/login/LoginForm"
+import { LoginState } from "~/login/LoginReducer"
+import * as LoginActions from "~/login/LoginActions"
 
 interface StateProps {
   login: LoginState
@@ -28,21 +28,21 @@ export class LoginScreen extends React.PureComponent<Props> {
     console.log("LoginScreen.render", this.props)
     return (
       <View style={styles.container}>
-        <LoginForm {...login} onChange={onChange} onSubmit={onSubmit} />
-        <Button title="Authorized" onPress={() => {
-          navigation.dispatch(NavigationActions.reset({
-            index: 0,
-            actions: [
-              NavigationActions.navigate({ routeName: "Authorized" })
-            ]
-          }))
-        }} />
-
+        <LoginForm {...login} onChange={onChange} onSubmit={this.handleSubmit} />
         <Button title="Signup" onPress={() => {
           navigation.navigate("Signup")
         }} />
       </View>
     )
+  }
+
+  handleSubmit = () => {
+    this.props.navigation.dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: "Authorized" })
+      ]
+    }))
   }
 }
 

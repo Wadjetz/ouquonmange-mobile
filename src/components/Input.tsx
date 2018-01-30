@@ -35,6 +35,7 @@ interface Styles {
 
 const styles = StyleSheet.create<Styles>({
   field: {
+    marginVertical: 10,
   },
   input: {
     paddingVertical: 4,

@@ -3,7 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import { composeWithDevTools } from "redux-devtools-extension"
 import { Provider } from "react-redux"
 import RootNavigator from "~/RootNavigator"
-import LoginReducer from "~/LoginReducer"
+import LoginReducer from "~/login/LoginReducer"
 
 const reducers = combineReducers({
   login: LoginReducer,
