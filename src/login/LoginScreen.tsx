@@ -28,7 +28,7 @@ export class LoginScreen extends React.PureComponent<Props> {
     console.log("LoginScreen.render", this.props)
     return (
       <View style={styles.container}>
-        <LoginForm {...login} onChange={onChange} onSubmit={this.handleSubmit} />
+        <LoginForm {...login} onChange={onChange} onSubmit={onSubmit} />
         <Button title="Signup" onPress={() => {
           navigation.navigate("Signup")
         }} />
@@ -37,6 +37,8 @@ export class LoginScreen extends React.PureComponent<Props> {
   }
 
   handleSubmit = () => {
+    const { login, onSubmit } = this.props
+    onSubmit(login.email, login.password)
     this.props.navigation.dispatch(NavigationActions.reset({
       index: 0,
       actions: [
