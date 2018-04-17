@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
     "build": "tsc",
-    "watch": "tsc --watch",
+    "watch": "tsc --watch --pretty",
     "ios": "react-native run-ios --simulator \"iPhone 7 Plus\"",
     "android": "react-native run-android",
     "test": "jest"
@@ -35,7 +35,7 @@
     "react-test-renderer": "16.2.0",
     "redux-devtools": "^3.4.1",
     "tslint": "^5.9.1",
-    "typescript": "^2.6.2"
+    "typescript": "^2.7.1"
   },
   "jest": {
     "preset": "react-native"

@@ -7,7 +7,19 @@ import * as LoginActions from "~/login/LoginActions"
 
 export const loginEpic: Epic<Action, GlobalState> = (actions, state) => actions.ofType("LOGIN_SUBMIT")
   .mergeMap((action: LoginActions.LOGIN_SUBMIT) => {
-    return Api.authenticate(action.email, action.password)
-      .then(LoginActions.loginSubmitSuccess)
-      .catch(LoginActions.loginSubmitError)
+    Api.authenticate(action.email, action.password).then(response => {
+      console.log("authenticate.then", response)
+      /*if (response.type === "Ok") {
+        return LoginActions.loginSubmitSuccess(response.data)
+      } else if (response.type === "BadRequest") {
+        return LoginActions.loginSubmitError(response.errors)
+      } else {
+        return Observable.empty()
+      }*/
+      return Observable.empty()
+    }).catch(error => {
+      return Observable.empty()
+    })
+
+    return Observable.empty()
   })

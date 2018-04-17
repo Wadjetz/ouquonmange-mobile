@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react"
 import { createStore, combineReducers, applyMiddleware } from "redux"
+import "rxjs"
 import { composeWithDevTools } from "redux-devtools-extension"
 import { createEpicMiddleware } from "redux-observable"
 import { Provider } from "react-redux"

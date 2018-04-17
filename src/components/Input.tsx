@@ -1,10 +1,11 @@
 import React from "react"
-import { View, Text, TextInput, StyleSheet, ViewStyle, TextStyle } from "react-native"
+import { View, Text, TextInput, StyleSheet, ViewStyle, TextStyle, KeyboardType } from "react-native"
 
 interface Props {
   value: string
   label: string
-  type?: string
+  type?: KeyboardType
+  password?: boolean
   error?: string
   onChange(value: string): void
 }
@@ -13,11 +14,11 @@ type InputEvent = { nativeEvent: { text: string } }
 
 export default class Input extends React.PureComponent<Props> {
   render() {
-    const { label, value, error } = this.props
+    const { label, value, error, type, password = false } = this.props
     return (
       <View style={styles.field}>
         <Text style={styles.label}>{label}</Text>
-        <TextInput style={styles.input} value={value} onChange={this.handleChange} />
+        <TextInput secureTextEntry={password} keyboardType={type} style={styles.input} value={value} onChange={this.handleChange} />
         {error ? <Text style={styles.error}>{error}</Text> : null}
       </View>
     )

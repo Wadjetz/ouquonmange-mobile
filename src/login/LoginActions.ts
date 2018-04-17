@@ -24,9 +24,10 @@ export function loginSubmit(email: string, password: string) {
 
 export type LOGIN_SUBMIT_SUCCESS = {
   type: "LOGIN_SUBMIT_SUCCESS"
+  token: string
 }
-export function loginSubmitSuccess() {
-  return { type: "LOGIN_SUBMIT_SUCCESS" }
+export function loginSubmitSuccess(token: string) {
+  return { type: "LOGIN_SUBMIT_SUCCESS", token }
 }
 
 export type LOGIN_SUBMIT_ERROR = {

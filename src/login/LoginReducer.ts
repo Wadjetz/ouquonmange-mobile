@@ -8,8 +8,8 @@ export interface LoginState {
 }
 
 const initLoginState: LoginState = {
-  email: "",
-  password: "",
+  email: "egor.neon@gmail.com1",
+  password: "273006",
   loading: false
 }
 

@@ -16,8 +16,9 @@ export default class LoginForm extends React.PureComponent<Props> {
     const { email, password } = this.props
     return (
       <View style={styles.container}>
-        <Input label="Email" value={email} onChange={this.handleChange("email")} />
-        <Input label="Password" value={password} onChange={this.handleChange("password")} />
+        <Text>Hello Elena</Text>
+        <Input type="email-address" label="Email" value={email} onChange={this.handleChange("email")} />
+        <Input password label="Password" value={password} onChange={this.handleChange("password")} />
         <Button title="Login" onPress={this.handleSubmit} />
       </View>
     )
